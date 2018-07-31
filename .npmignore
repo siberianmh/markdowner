@@ -1,0 +1,15 @@
+# obvs
+node_modules/
+
+# no need to bring in the TS source
+/lib
+
+# don't ship tests
+test
+
+# except we should include the typescript definitions
+!*.d.ts
+
+# output is transpiled JS - no need for these
+tslint.json
+tsconfig.json
