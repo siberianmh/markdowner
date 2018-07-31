@@ -1,5 +1,5 @@
 {
-  "name": "@siberianh/markdowner",
+  "name": "smh-markdowner",
   "version": "0.0.0-development",
   "description": "Convert Markdown to GitHub-style HTML",
   "main": "./build/index.js",
