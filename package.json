@@ -45,7 +45,9 @@
       "^.+\\.ts?$": "ts-jest"
     },
     "testEnvironment": "node",
-    "testPathIgnorePatterns": ["node_modules", "build"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/build"
+    ],
     "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",
