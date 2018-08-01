@@ -3,6 +3,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es6",
+    "noImplicitAny": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
