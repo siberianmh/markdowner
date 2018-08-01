@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha --require ts-node/register ./test/*.test.ts",
+    "prepare": "tsc",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
   },
