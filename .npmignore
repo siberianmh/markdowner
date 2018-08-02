@@ -1,6 +1,9 @@
 # obvs
 node_modules/
 
+# ignore code coverage reports
+coverage
+
 # no need to bring in the TS source
 /lib
 
