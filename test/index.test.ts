@@ -27,10 +27,11 @@ describe('markdowner', () => {
     expect($('h2#basic-fixture').length).toEqual(1)
   })
 
-  // TODO: Buyback this test
-  // it('turns headings into links', () => {
-  //   expect($('h2#basic-fixture a[href="#basic-fixture"]').text()).toEqual('Basic Fixture')
-  // })
+  it('turns headings into links', () => {
+    expect($('h2#basic-fixture a[href="#basic-fixture"]').text()).toEqual(
+      'Basic Fixture'
+    )
+  })
 
   it('handles markdown links', () => {
     expect(fixtures.basic).toContain('[link](https://link.com)')
