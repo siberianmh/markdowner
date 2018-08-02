@@ -5,8 +5,14 @@ const cheerio = require('cheerio')
 const fixtures = {
   basic: fs.readFileSync(path.join(__dirname, 'fixtures/basic.md'), 'utf8'),
   emoji: fs.readFileSync(path.join(__dirname, 'fixtures/emoji.md'), 'utf8'),
-  footnotes: fs.readFileSync(path.join(__dirname, 'fixtures/footnotes.md'), 'utf8'),
-  frontmatter: fs.readFileSync(path.join(__dirname, 'fixtures/frontmatter.md'), 'utf8')
+  footnotes: fs.readFileSync(
+    path.join(__dirname, 'fixtures/footnotes.md'),
+    'utf8'
+  ),
+  frontmatter: fs.readFileSync(
+    path.join(__dirname, 'fixtures/frontmatter.md'),
+    'utf8'
+  )
 }
 
 describe('markdowner', () => {
@@ -55,7 +61,9 @@ describe('markdowner', () => {
 
     it('handles full reference links', () => {
       expect(fixtures.footnotes).toContain('[full reference link][full]')
-      expect(file.content).toContain('<a href="http://full.com">full reference link</a>')
+      expect(file.content).toContain(
+        '<a href="http://full.com">full reference link</a>'
+      )
     })
   })
 
@@ -67,7 +75,7 @@ describe('markdowner', () => {
     })
 
     it('parses YML frontmatter if the frontmatter option is true', async () => {
-      const file = await markdowner(fixtures.frontmatter, {frontmatter: true})
+      const file = await markdowner(fixtures.frontmatter, { frontmatter: true })
       expect(Object.keys(file)).toContain('content')
       expect(Object.keys(file)).toContain('title')
       expect(file.title).toEqual('Team post: The new database')

@@ -30,7 +30,10 @@ export interface IOptions {
   frontmatter: boolean
 }
 
-export async function markdowner(markdownString: string, opts?: IOptions): Promise<any> {
+export async function markdowner(
+  markdownString: string,
+  opts?: IOptions
+): Promise<any> {
   const defaults: IOptions = {
     frontmatter: false
   }
