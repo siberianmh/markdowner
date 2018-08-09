@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.1",
-    "pify": "^3.0.0",
+    "pify": "^4.0.0",
     "remark": "^9.0.0",
     "@rigor789/remark-autolink-headings": "^5.1.0",
     "remark-gemoji-to-emoji": "^1.1.0",
