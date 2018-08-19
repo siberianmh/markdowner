@@ -21,15 +21,15 @@ The following [remark] plugins are used by markdowner:
 ## Installation
 
 ```sh
-npm install @siberianh/markdowner --save
+npm install smh-markdowner --save
 ```
 
 ## Usage
 
 markdowner exports a single function that returns a promise:
 
-```js
-const markdowner = require('markdowner')
+```ts
+import { markdowner } from 'smh-markdowner'
 
 markdowner('I am markdown').then(doc => {
   console.log(doc)
@@ -39,7 +39,7 @@ markdowner('I am markdown').then(doc => {
 The resolved promise yields an object with a `content` property
 containing the parsed HTML:
 
-```js
+```ts
 {
   content: '<p>I am markdown</p>'
 }
@@ -58,7 +58,7 @@ Arguments:
 
 Returns a promise. The resolved object looks like this:
 
-```js
+```ts
 {
   content: 'HTML goes here'
 }
@@ -66,7 +66,7 @@ Returns a promise. The resolved object looks like this:
 
 If [YML frontmatter] is parsed, those properties will be present on the object too:
 
-```js
+```ts
 {
   title: 'The Feminine Mystique',
   author: 'Betty Friedan',
@@ -83,7 +83,7 @@ npm test
 
 ## License
 
-MIT
+[MIT](LICENUSE)
 
 [remark]: http://ghub.io/remark
 [YML frontmatter]: https://jekyllrb.com/docs/frontmatter
