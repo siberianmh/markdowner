@@ -2,6 +2,10 @@ import * as fs from 'fs'
 import * as path from 'path'
 import { markdowner } from '../lib/index'
 const cheerio = require('cheerio')
+const level = require('level')
+import * as hasha from 'hasha'
+
+
 const fixtures = {
   basic: fs.readFileSync(path.join(__dirname, 'fixtures/basic.md'), 'utf8'),
   emoji: fs.readFileSync(path.join(__dirname, 'fixtures/emoji.md'), 'utf8'),
@@ -82,6 +86,30 @@ describe('markdowner', () => {
       expect(file.title).toEqual('Team post: The new database')
       expect(file.author).toEqual('HashimotoYT')
       expect(file.date).toEqual('2018-09-12')
+    })
+  })
+
+  describe('caching', () => {
+    const db = level('./test/.cache', {valueEncoding: 'json'})
+
+    it('accepts an optional leveldb instance as a cache', async () => {
+      const hash = hasha(fixtures.basic)
+      await db.put(hash, {content: 'Hello from the caching world'})
+
+      const uncached = await markdowner(fixtures.basic)
+      expect(uncached.content).toContain('<h2')
+
+      const cached = await markdowner(fixtures.basic, {cache: db})
+      expect(cached.content).toEqual('Hello from the caching world')
+    })
+
+    it('saves to the cache', async () => {
+      const hash = hasha('This is cached?')
+      await db.del(hash)
+
+      await markdowner('This is cached?', {cache: db})
+      const cached = await db.get(hash)
+      expect(cached.content).toEqual('<p>This is cached?</p>\n')
     })
   })
 })
