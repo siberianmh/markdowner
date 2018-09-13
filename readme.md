@@ -45,6 +45,21 @@ containing the parsed HTML:
 }
 ```
 
+## Using with Cache
+
+To use the cache, bring your own [level](https://github.com/Level/level) instance and
+supply it as an option to markdown. This helps keep markdowner lean on (native)
+dependencies for users who don't need the cache
+
+```ts
+import { markdowner } from 'smh-markdowner'
+const cache = require('level')('./my-cache')
+
+markdowner('This is cached.', {cache}).then(doc => {
+  console.log(doc)
+})
+```
+
 ## API
 
 ### `markdowner(markdownString, {options})`
