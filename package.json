@@ -29,7 +29,7 @@
     "@types/hasha": "^3.0.0",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/jest": "^24.0.0",
-    "@types/node": "^10.9.4",
+    "@types/node": "^11.9.0",
     "@types/pify": "^3.0.2",
     "cheerio": "^1.0.0-rc.2",
     "codecov": "^3.0.4",
