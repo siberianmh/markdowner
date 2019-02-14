@@ -9,14 +9,15 @@ notifications:
   email: false
 
 node_js:
+  - '11'
   - '10'
   - '8'
 
 install:
-  - npm install
+  - yarn install
 
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+  - yarn run travis-deploy-once "yarn run semantic-release"
 
 branches:
   except:
