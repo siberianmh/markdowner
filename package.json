@@ -2,9 +2,9 @@
   "name": "smh-markdowner",
   "version": "0.0.0-development",
   "description": "Convert Markdown to GitHub-style HTML",
-  "main": "./build/index.js",
+  "main": "./build/lib/index.js",
   "repository": "https://github.com/siberianmh/markdowner",
-  "types": "./build/index.d.ts",
+  "types": "./build/lib/index.d.ts",
   "author": "Siberian Media Holding, Inc.",
   "license": "MIT",
   "scripts": {
@@ -14,21 +14,23 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
+    "@rigor789/remark-autolink-headings": "^5.1.0",
     "gray-matter": "^4.0.2",
     "pify": "^4.0.1",
     "remark": "^10.0.1",
-    "@rigor789/remark-autolink-headings": "^5.1.0",
     "remark-gemoji-to-emoji": "^1.1.0",
     "remark-highlight.js": "^5.1.0",
     "remark-html": "^9.0.0",
     "remark-inline-links": "^3.1.2",
-    "remark-slug": "^5.1.1",
+    "remark-slug": "^5.1.1"
+  },
+  "peerDependencies": {
     "level": "^4.0.0"
   },
   "devDependencies": {
     "@types/hasha": "^3.0.0",
-    "@types/json-stable-stringify": "^1.0.32",
     "@types/jest": "^24.0.4",
+    "@types/json-stable-stringify": "^1.0.32",
     "@types/node": "^11.9.4",
     "@types/pify": "^3.0.2",
     "cheerio": "^1.0.0-rc.2",
@@ -36,6 +38,7 @@
     "hasha": "^3.0.0",
     "jest": "^24.1.0",
     "json-stable-stringify": "^1.0.1",
+    "level": "^4.0.0",
     "semantic-release": "^15.13.3",
     "travis-deploy-once": "^5.0.11",
     "ts-jest": "^23.10.5",
