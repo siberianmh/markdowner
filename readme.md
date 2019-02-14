@@ -47,6 +47,9 @@ containing the parsed HTML:
 
 ## Using with Cache
 
+> NOTE: If you want uses cache module you need to install `level`
+> dependency manually, you can make by `npm install level`
+
 To use the cache, bring your own [level](https://github.com/Level/level) instance and
 supply it as an option to markdown. This helps keep markdowner lean on (native)
 dependencies for users who don't need the cache
