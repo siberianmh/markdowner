@@ -16,6 +16,7 @@
   "dependencies": {
     "@rigor789/remark-autolink-headings": "^5.1.0",
     "gray-matter": "^4.0.2",
+    "hasha": "^3.0.0",
     "pify": "^4.0.1",
     "remark": "^10.0.1",
     "remark-gemoji-to-emoji": "^1.1.0",
@@ -35,7 +36,6 @@
     "@types/pify": "^3.0.2",
     "cheerio": "^1.0.0-rc.2",
     "codecov": "^3.2.0",
-    "hasha": "^3.0.0",
     "jest": "^24.1.0",
     "json-stable-stringify": "^1.0.1",
     "level": "^4.0.0",
