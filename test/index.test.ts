@@ -5,19 +5,16 @@ const cheerio = require('cheerio')
 const level = require('level')
 import * as hasha from 'hasha'
 
+const readFile = (file: string) =>
+  fs.readFileSync(path.join(__dirname, `${file}`), 'utf8')
 
 const fixtures = {
-  basic: fs.readFileSync(path.join(__dirname, 'fixtures/basic.md'), 'utf8'),
-  emoji: fs.readFileSync(path.join(__dirname, 'fixtures/emoji.md'), 'utf8'),
-  footnotes: fs.readFileSync(
-    path.join(__dirname, 'fixtures/footnotes.md'),
-    'utf8'
-  ),
-  frontmatter: fs.readFileSync(
-    path.join(__dirname, 'fixtures/frontmatter.md'),
-    'utf8'
-  ),
-  code: fs.readFileSync(path.join(__dirname, 'fixtures/code.md'), 'utf8')
+  basic: readFile('fixtures/basic.md'),
+  emoji: readFile('fixtures/emoji.md'),
+  footnotes: readFile('fixtures/footnotes.md'),
+  frontmatter: readFile('fixtures/frontmatter.md'),
+  code: readFile('fixtures/code.md'),
+  table: readFile('fixtures/table.md')
 }
 
 describe('markdowner', () => {
@@ -56,6 +53,11 @@ describe('markdowner', () => {
   it('handles syntax highlight', async () => {
     const file = await markdowner(fixtures.code)
     expect(file.content).toContain("<pre><code class=\"hljs language-js\">")
+  })
+
+  it('table renders', async () => {
+    const file = await markdowner(fixtures.table)
+    expect(file.content).toContain('li')
   })
 
   describe('footnotes', () => {
