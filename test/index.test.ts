@@ -16,7 +16,8 @@ const fixtures = {
   frontmatter: fs.readFileSync(
     path.join(__dirname, 'fixtures/frontmatter.md'),
     'utf8'
-  )
+  ),
+  code: fs.readFileSync(path.join(__dirname, 'fixtures/code.md'), 'utf8')
 }
 
 describe('markdowner', () => {
@@ -50,6 +51,11 @@ describe('markdowner', () => {
     // does not mess with existing emoji
     expect(fixtures.emoji).toContain('✨')
     expect(file.content).toContain('✨')
+  })
+
+  it('handles syntax highlight', async () => {
+    const file = await markdowner(fixtures.code)
+    expect(file.content).toContain("<pre><code class=\"hljs language-js\">")
   })
 
   describe('footnotes', () => {
