@@ -13,25 +13,6 @@ aliases:
     key: v2-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
 
 jobs:
-  test-node-6:
-    docker:
-      - image: circleci/node:6
-    steps:
-      - checkout
-      - restore-cache: *restore-cache
-      - run:
-          name: Install dependencies
-          command: yarn --ignore-engines
-      - save-cache: *save-cache
-      - run:
-          name: Run tests
-          command: yarn test --reporters=default --reporters=jest-junit
-      - run:
-          name: Coverage report
-          command: yarn test:report
-      - store_test_results:
-          path: junit.xml
-
   test-node-8:
     docker:
       - image: circleci/node:8
@@ -102,13 +83,11 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      - test-node-6
       - test-node-8
       - test-node-10
       - test-node-latest
       # - release:
       #     requires:
-      #       - test-node-6
       #       - test-node-8
       #       - test-node-10
       #       - test-node-latest
