@@ -3,3 +3,4 @@ build
 *.log
 coverage
 test/.cache
+*.xml
