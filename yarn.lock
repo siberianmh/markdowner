@@ -811,13 +811,6 @@
     universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
-"@rigor789/remark-autolink-headings@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@rigor789/remark-autolink-headings/-/remark-autolink-headings-5.1.0.tgz#cb692df8b1914d88b2a957c949bed13fcbdc1a23"
-  integrity sha512-EXr0Upsr9mSOYOMYTDF68mUGAuIeGvCwvCpK/sXBT8gFI2Zp8srg9CisVNg1e3XCSTOU2ETVTIgqHV5D8rF/lg==
-  dependencies:
-    unist-util-visit "^1.0.1"
-
 "@semantic-release/commit-analyzer@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-6.1.0.tgz#32bbe3c23da86e23edf072fbb276fa2f383fcb17"
@@ -952,10 +945,10 @@
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
   integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
 
-"@types/jest@^24.0.4":
-  version "24.0.9"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.9.tgz#74ce9cf337f25e189aa18f76ab3d65e8669b55f2"
-  integrity sha512-k3OOeevcBYLR5pdsOv5g3OP94h3mrJmLPHFEPWgbbVy2tGv0TZ/TlygiC848ogXhK8NL0I5up7YYtwpCp8xCJA==
+"@types/jest@^24.0.10":
+  version "24.0.10"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.10.tgz#a7b49ed1c23e518b1381596eb0ad9736eb6f2f64"
+  integrity sha512-Q+odXTGshlsr9MK75ZBPfiwpo5oDH6KvB+YOSIesc3phbhTRAMWewS9+NywXUSXV/OQzS1L+kq1BLp9o8DmwIA==
   dependencies:
     "@types/jest-diff" "*"
 
@@ -964,7 +957,7 @@
   resolved "https://registry.yarnpkg.com/@types/json-stable-stringify/-/json-stable-stringify-1.0.32.tgz#121f6917c4389db3923640b2e68de5fa64dda88e"
   integrity sha512-q9Q6+eUEGwQkv4Sbst3J4PNgDOvpuVuKj79Hl/qnmBMEIPzB5QoFRUtjcgcg2xNUZyYUGXBk5wYIBKHt0A+Mxw==
 
-"@types/node@*", "@types/node@^11.9.4":
+"@types/node@*", "@types/node@^11.10.5":
   version "11.10.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.5.tgz#fbaca34086bdc118011e1f05c47688d432f2d571"
   integrity sha512-DuIRlQbX4K+d5I+GMnv+UfnGh+ist0RdlvOp+JZ7ePJ6KQONCFQv/gKYSU1ZzbVdFSUCKZOltjmpFAGGv5MdYA==
@@ -2672,7 +2665,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@^3.0.0, extend@~3.0.2:
+extend@^3.0.0, extend@^3.0.2, extend@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
@@ -4236,7 +4229,7 @@ jest-worker@^24.3.1:
     merge-stream "^1.0.1"
     supports-color "^6.1.0"
 
-jest@^24.1.0:
+jest@^24.3.1:
   version "24.3.1"
   resolved "https://registry.yarnpkg.com/jest/-/jest-24.3.1.tgz#81959de0d57b2df923510f4fafe266712d37dcca"
   integrity sha512-SqZguEbYNcZ3r0KUUBN+IkKfyPS1VBbIUiK4Wrc0AiGUR52gJa0fmlWSOCL3x25908QrfoQwkVDu5jCsfXb2ig==
@@ -6407,6 +6400,14 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
+remark-autolink-headings@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/remark-autolink-headings/-/remark-autolink-headings-5.1.0.tgz#73c92bcf6b0b4bddf2a52696d4434d77e4b1c962"
+  integrity sha512-+dMaZ9qxEiuC7EyCWdwE9cm6AlVP+GaoEIdD8DtjnqZdMEInt0fRoDNrILOBL3gh6v3MhzfGeus4VcRVXniYQQ==
+  dependencies:
+    extend "^3.0.2"
+    unist-util-visit "^1.0.1"
+
 remark-gemoji-to-emoji@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remark-gemoji-to-emoji/-/remark-gemoji-to-emoji-1.1.0.tgz#3dcd0a8811a0c81bb63513ac0b36f2258a5530f5"
@@ -7536,7 +7537,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.3.3:
+typescript@^3.3.3333:
   version "3.3.3333"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"
   integrity sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==

@@ -8,7 +8,7 @@ const slug = require('remark-slug')
 const hljs = require('remark-highlight.js')
 const html = require('remark-html')
 const emoji = require('remark-gemoji-to-emoji')
-const autolinkHeadings = require('@rigor789/remark-autolink-headings')
+const autolinkHeadings = require('remark-autolink-headings')
 const inlineLinks = require('remark-inline-links')
 
 const renderer = remark()
