@@ -15,7 +15,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "@rigor789/remark-autolink-headings": "^5.1.0",
+    "remark-autolink-headings": "^5.1.0",
     "gray-matter": "^4.0.2",
     "hasha": "^3.0.0",
     "pify": "^4.0.1",

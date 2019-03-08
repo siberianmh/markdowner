@@ -811,13 +811,6 @@
     universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
-"@rigor789/remark-autolink-headings@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@rigor789/remark-autolink-headings/-/remark-autolink-headings-5.1.0.tgz#cb692df8b1914d88b2a957c949bed13fcbdc1a23"
-  integrity sha512-EXr0Upsr9mSOYOMYTDF68mUGAuIeGvCwvCpK/sXBT8gFI2Zp8srg9CisVNg1e3XCSTOU2ETVTIgqHV5D8rF/lg==
-  dependencies:
-    unist-util-visit "^1.0.1"
-
 "@semantic-release/commit-analyzer@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-6.1.0.tgz#32bbe3c23da86e23edf072fbb276fa2f383fcb17"
@@ -2672,7 +2665,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@^3.0.0, extend@~3.0.2:
+extend@^3.0.0, extend@^3.0.2, extend@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
@@ -6406,6 +6399,14 @@ regjsparser@^0.6.0:
   integrity sha512-RQ7YyokLiQBomUJuUG8iGVvkgOLxwyZM8k6d3q5SAXpg4r5TZJZigKFvC6PpD+qQ98bCDC5YelPeA3EucDoNeQ==
   dependencies:
     jsesc "~0.5.0"
+
+remark-autolink-headings@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/remark-autolink-headings/-/remark-autolink-headings-5.1.0.tgz#73c92bcf6b0b4bddf2a52696d4434d77e4b1c962"
+  integrity sha512-+dMaZ9qxEiuC7EyCWdwE9cm6AlVP+GaoEIdD8DtjnqZdMEInt0fRoDNrILOBL3gh6v3MhzfGeus4VcRVXniYQQ==
+  dependencies:
+    extend "^3.0.2"
+    unist-util-visit "^1.0.1"
 
 remark-gemoji-to-emoji@^1.1.0:
   version "1.1.0"
