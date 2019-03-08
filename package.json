@@ -8,7 +8,7 @@
   "author": "Siberian Media Holding, Inc.",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "ts-node ./test/index.test.ts",
     "test:report": "codecov",
     "prepare": "tsc",
     "semantic-release": "semantic-release",
@@ -30,6 +30,7 @@
     "level": "^4.0.0"
   },
   "devDependencies": {
+    "@siberianmh/cosmosjs": "^0.1.0",
     "@types/hasha": "^3.0.0",
     "@types/jest": "^24.0.4",
     "@types/json-stable-stringify": "^1.0.32",
@@ -44,6 +45,7 @@
     "semantic-release": "^15.13.3",
     "travis-deploy-once": "^5.0.11",
     "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.3",
     "typescript": "^3.3.3"
   },
   "engines": {

@@ -1,5 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import { describe, it, expect, end } from '@siberianmh/cosmosjs'
 import { markdowner } from '../lib/index'
 const cheerio = require('cheerio')
 const level = require('level')
@@ -20,22 +21,22 @@ const fixtures = {
 describe('markdowner', () => {
   let file: any, $: any
 
-  beforeAll(async () => {
+  it('adds DOM ids to headings', async () => {
     file = await markdowner(fixtures.basic)
     $ = cheerio.load(file.content)
-  })
-
-  it('adds DOM ids to headings', () => {
     expect($('h2#basic-fixture').length).toEqual(1)
   })
 
-  it('turns headings into links', () => {
+  it('turns headings into links', async () => {
+    file = await markdowner(fixtures.basic)
+    $ = cheerio.load(file.content)
     expect($('h2#basic-fixture a[href="#basic-fixture"]').text()).toEqual(
       'Basic Fixture'
     )
   })
 
-  it('handles markdown links', () => {
+  it('handles markdown links', async () => {
+    file = await markdowner(fixtures.basic)
     expect(fixtures.basic).toContain('[link](https://link.com)')
     expect(file.content).toContain('<a href="https://link.com">link</a>')
   })
@@ -63,17 +64,15 @@ describe('markdowner', () => {
   describe('footnotes', () => {
     let file: any
 
-    beforeAll(async () => {
-      file = await markdowner(fixtures.footnotes)
-    })
-
     it('handles footnotes in markdown links', async () => {
+      file = await markdowner(fixtures.footnotes)
       expect(fixtures.footnotes).toContain('[link]')
       expect(file.content).toContain('<a href="http://example.com">link</a>')
     })
 
-    it('handles full reference links', () => {
+    it('handles full reference links', async () => {
       expect(fixtures.footnotes).toContain('[full reference link][full]')
+      file = await markdowner(fixtures.footnotes)
       expect(file.content).toContain(
         '<a href="http://full.com">full reference link</a>'
       )
@@ -84,7 +83,7 @@ describe('markdowner', () => {
     it('does not parse frontmatter by default', async () => {
       const file = await markdowner(fixtures.frontmatter)
       expect(Object.keys(file)).toContain('content')
-      expect(Object.keys(file)).not.toContain('title')
+      expect(Object.keys(file)).toNotInclude('title')
     })
 
     it('parses YML frontmatter if the frontmatter option is true', async () => {
@@ -121,3 +120,5 @@ describe('markdowner', () => {
     })
   })
 })
+
+end()
