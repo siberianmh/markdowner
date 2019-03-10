@@ -14,7 +14,8 @@ const fixtures = {
   footnotes: readFile('fixtures/footnotes.md'),
   frontmatter: readFile('fixtures/frontmatter.md'),
   code: readFile('fixtures/code.md'),
-  table: readFile('fixtures/table.md')
+  table: readFile('fixtures/table.md'),
+  toc: readFile('fixtures/toc.md')
 }
 
 describe('markdowner', () => {
@@ -77,6 +78,19 @@ describe('markdowner', () => {
       expect(file.content).toContain(
         '<a href="http://full.com">full reference link</a>'
       )
+    })
+  })
+
+  describe('table of contents', () => {
+    it('generates', async () => {
+      const file = await markdowner(fixtures.toc, { toc: true })
+      expect(fixtures.toc).not.toContain('Table Of Contents')
+      expect(file.content).toContain('Table of Contents')
+    })
+
+    it('to contain table', async () => {
+      const file = await markdowner(fixtures.toc, { toc: true })
+      expect(file.content).toContain('ul')
     })
   })
 
