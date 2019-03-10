@@ -25,7 +25,7 @@ jobs:
       - save-cache: *save-cache
       - run:
           name: Run tests
-          command: yarn test --reporters=default --reporters=jest-junit
+          command: yarn test
       - run:
           name: Coverage report
           command: yarn test:report
@@ -44,7 +44,7 @@ jobs:
       - save-cache: *save-cache
       - run:
           name: Run tests
-          command: yarn test --reporters=default --reporters=jest-junit
+          command: yarn test
       - run:
           name: Coverage report
           command: yarn test:report
@@ -63,7 +63,7 @@ jobs:
       - save-cache: *save-cache
       - run:
           name: Run tests
-          command: yarn test --reporters=default --reporters=jest-junit
+          command: yarn test
       - run:
           name: Coverage report
           command: yarn test:report
