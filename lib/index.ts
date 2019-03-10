@@ -1,7 +1,7 @@
-import * as grayMatter from 'gray-matter'
-import * as pify from 'pify'
-import * as hasha from 'hasha'
-import * as stableStringify from 'json-stable-stringify'
+import grayMatter from 'gray-matter'
+import pify from 'pify'
+import hasha from 'hasha'
+import stableStringify from 'json-stable-stringify'
 
 const remark = require('remark')
 const slug = require('remark-slug')
@@ -35,7 +35,7 @@ export interface IOptions {
    * An optional `level` instance in which to store
    * preprocessed content.
    */
-  cache?: Map<string, boolean | any>
+  cache?: Map<string, boolean> | any
 }
 
 export async function markdowner(
@@ -73,7 +73,7 @@ export async function markdowner(
   const md = await pify(renderer.process)(content)
   Object.assign(data, {content: md.contents})
 
-  // @ts-ignore `Put` not found in Map<> | Save processed markdown in cache
+  // Save processed markdown in cache
   if (opts.cache) await opts.cache.put(hash, data)
 
   return data
