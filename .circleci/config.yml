@@ -26,8 +26,6 @@ jobs:
       - run:
           name: Run tests
           command: yarn test --reporters=default --reporters=jest-junit
-          env:
-            JEST_JUNIT_OUTPUT="./test-results/jest/junit.xml"
       - run:
           name: Coverage report
           command: yarn test:report
@@ -50,8 +48,6 @@ jobs:
       - run:
           name: Coverage report
           command: yarn test:report
-          env:
-            JEST_JUNIT_OUTPUT="./test-results/jest/junit.xml"
       - store_test_results:
           path: test-results
 
@@ -68,8 +64,6 @@ jobs:
       - run:
           name: Run tests
           command: yarn test --reporters=default --reporters=jest-junit
-          env:
-            JEST_JUNIT_OUTPUT="./test-results/jest/junit.xml"
       - run:
           name: Coverage report
           command: yarn test:report
