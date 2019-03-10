@@ -25,12 +25,12 @@ jobs:
       - save-cache: *save-cache
       - run:
           name: Run tests
-          command: yarn test --reporters=default --reporters=jest-junit
+          command: yarn test
       - run:
           name: Coverage report
           command: yarn test:report
       - store_test_results:
-          path: junit.xml
+          path: test-results
 
   test-node-10:
     docker:
@@ -44,12 +44,12 @@ jobs:
       - save-cache: *save-cache
       - run:
           name: Run tests
-          command: yarn test --reporters=default --reporters=jest-junit
+          command: yarn test
       - run:
           name: Coverage report
           command: yarn test:report
       - store_test_results:
-          path: junit.xml
+          path: test-results
 
   test-node-latest:
     docker:
@@ -63,12 +63,12 @@ jobs:
       - save-cache: *save-cache
       - run:
           name: Run tests
-          command: yarn test --reporters=default --reporters=jest-junit
+          command: yarn test
       - run:
           name: Coverage report
           command: yarn test:report
       - store_test_results:
-          path: junit.xml
+          path: test-results
   # release:
   #   docker:
   #     - image: circleci/node:latest

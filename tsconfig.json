@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
     "target": "es2018",
-    "noImplicitAny": false,
+    "module": "commonjs",
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "strict": true,
-    "sourceMap": true,
-    "outDir": "./build",
-    "declaration": true
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "./build"
   },
-  "exclude": ["node_modules", "build"],
-  "include": ["lib/**/*.ts", "test/**/*.ts"],
-  "compileOnSave": false
+  "include": ["lib/**/*.ts", "test/**/*.ts"]
 }

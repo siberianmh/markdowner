@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest --coverage",
     "test:report": "codecov",
-    "prepare": "tsc",
+    "prepublishOnly": "tsc",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
   },
@@ -56,6 +56,15 @@
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "<rootDir>/build"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "output": "./test-results/jest/junit.xml"
+        }
+      ]
     ],
     "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
