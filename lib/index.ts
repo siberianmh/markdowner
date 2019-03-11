@@ -34,6 +34,7 @@ export interface IOptions {
   /**
    * Whether or not to try generate Table of Contents
    * of markdown file.
+   * @default false
    */
   toc?: boolean
 }

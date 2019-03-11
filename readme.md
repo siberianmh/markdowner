@@ -21,6 +21,8 @@ The following [remark] plugins are used by markdowner:
 ## Installation
 
 ```sh
+yarn add smh-markdowner
+# or
 npm install smh-markdowner --save
 ```
 
@@ -73,6 +75,8 @@ Arguments:
 - `options` Object - (optional)
   - `frontmatter` Boolean - Whether or not to try to parse [YML frontmatter] in
     the file. Defaults to `false`.
+  - `cache` Map - An optional `level` instance in which to store preprocessed content.
+  - `toc` Boolean - Whether or not to try generate Table of Contents of markdown file.
 
 Returns a promise. The resolved object looks like this:
 
@@ -95,13 +99,13 @@ If [YML frontmatter] is parsed, those properties will be present on the object t
 ## Tests
 
 ```sh
-npm install
-npm test
+yarn
+yarn test
 ```
 
 ## License
 
-[MIT](LICENUSE)
+[MIT](LICENSE)
 
 [remark]: http://ghub.io/remark
 [YML frontmatter]: https://jekyllrb.com/docs/frontmatter
