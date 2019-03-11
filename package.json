@@ -1,6 +1,6 @@
 {
   "name": "smh-markdowner",
-  "version": "0.0.0-development",
+  "version": "2.0.0",
   "description": "Convert Markdown to GitHub-style HTML",
   "main": "./build/lib/index.js",
   "repository": "https://github.com/siberianmh/markdowner",
