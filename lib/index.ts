@@ -10,13 +10,7 @@ const html = require('remark-html')
 const emoji = require('remark-gemoji-to-emoji')
 const autolinkHeadings = require('remark-autolink-headings')
 const inlineLinks = require('remark-inline-links')
-
-const renderer = remark()
-  .use(slug)
-  .use(autolinkHeadings, { behaviour: 'wrap' })
-  .use(inlineLinks)
-  .use(emoji)
-  .use([hljs, html], { sanitize: false })
+const toc = require('remark-toc')
 
 /**
  * Interface for standard options.
@@ -36,16 +30,31 @@ export interface IOptions {
    * preprocessed content.
    */
   cache?: Map<string, boolean> | any
+
+  /**
+   * Whether or not to try generate Table of Contents
+   * of markdown file.
+   * @default false
+   */
+  toc?: boolean
 }
 
 export async function markdowner(
   markdownString: string,
   opts?: IOptions
 ): Promise<any> {
+  let renderer = remark()
+    .use(slug)
+    .use(autolinkHeadings, { behaviour: 'wrap' })
+    .use(inlineLinks)
+    .use(emoji)
+    .use([hljs, html], { sanitize: false })
+
   const hash = makeHash(markdownString, opts)
 
   const defaults: IOptions = {
-    frontmatter: false
+    frontmatter: false,
+    toc: false
   }
 
   opts = Object.assign(defaults, opts)
@@ -68,6 +77,16 @@ export async function markdowner(
     const parsed = grayMatter(markdownString)
     data = parsed.data
     content = parsed.content
+  }
+
+  if (opts.toc) {
+    renderer = remark()
+    .use(slug)
+    .use(autolinkHeadings, { behaviour: 'wrap' })
+    .use(inlineLinks)
+    .use(emoji)
+    .use([hljs, html], { sanitize: false })
+    .use(toc)
   }
 
   const md = await pify(renderer.process)(content)
