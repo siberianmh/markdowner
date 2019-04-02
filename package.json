@@ -28,7 +28,7 @@
     "remark-toc": "^5.1.1"
   },
   "peerDependencies": {
-    "level": "^4.0.0"
+    "level": "^5.0.1"
   },
   "devDependencies": {
     "@types/hasha": "^3.0.0",
@@ -41,7 +41,7 @@
     "jest": "^24.3.1",
     "jest-junit": "^6.3.0",
     "json-stable-stringify": "^1.0.1",
-    "level": "^4.0.0",
+    "level": "^5.0.1",
     "semantic-release": "^15.13.3",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.3333"
