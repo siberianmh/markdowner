@@ -3,7 +3,7 @@ import * as path from 'path'
 import { markdowner } from '../lib/index'
 const cheerio = require('cheerio')
 const level = require('level')
-import hasha from 'hasha'
+import hasha = require('hasha')
 
 const readFile = (file: string) =>
   fs.readFileSync(path.join(__dirname, `${file}`), 'utf8')

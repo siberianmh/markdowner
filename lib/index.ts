@@ -1,6 +1,6 @@
 import grayMatter from 'gray-matter'
 import pify from 'pify'
-import hasha from 'hasha'
+import hasha = require('hasha')
 import stableStringify from 'json-stable-stringify'
 
 const remark = require('remark')

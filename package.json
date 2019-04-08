@@ -31,7 +31,6 @@
     "level": "^5.0.1"
   },
   "devDependencies": {
-    "@types/hasha": "^3.0.0",
     "@types/jest": "^24.0.10",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/node": "^11.10.5",
