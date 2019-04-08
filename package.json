@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
-    "hasha": "^4.0.0",
+    "hasha": "^5.0.0",
     "pify": "^4.0.1",
     "remark": "^10.0.1",
     "remark-autolink-headings": "^5.1.0",
