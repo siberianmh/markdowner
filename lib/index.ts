@@ -1,5 +1,5 @@
 import grayMatter from 'gray-matter'
-import pify from 'pify'
+import { promisify } from 'util'
 import hasha = require('hasha')
 import stableStringify from 'json-stable-stringify'
 
@@ -89,7 +89,7 @@ export async function markdowner(
     .use(toc)
   }
 
-  const md = await pify(renderer.process)(content)
+  const md = await promisify(renderer.process)(content)
   Object.assign(data, {content: md.contents})
 
   // Save processed markdown in cache
