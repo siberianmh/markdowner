@@ -36,7 +36,7 @@
     "cheerio": "^1.0.0-rc.2",
     "codecov": "^3.2.0",
     "jest": "^24.3.1",
-    "jest-junit": "^6.3.0",
+    "jest-junit": "^7.0.0",
     "json-stable-stringify": "^1.0.1",
     "level": "^5.0.1",
     "semantic-release": "^15.13.3",
