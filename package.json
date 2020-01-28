@@ -39,7 +39,7 @@
     "jest-junit": "^10.0.0",
     "json-stable-stringify": "^1.0.1",
     "level": "^6.0.0",
-    "semantic-release": "^16.0.1",
+    "semantic-release": "^17.0.0",
     "ts-jest": "^25.0.0",
     "typescript": "^3.3.3333"
   },
