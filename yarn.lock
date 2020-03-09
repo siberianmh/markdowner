@@ -4306,14 +4306,13 @@ level-supports@~1.0.0:
     xtend "^4.0.2"
 
 level@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/level/-/level-6.0.0.tgz#d216fb9b9c3940bcec15c5880d8da775ca086c5c"
-  integrity sha512-3oAi7gXLLNr7pHj8c4vbI6lHkXf35m8qb7zWMrNTrOax6CXBVggQAwL1xnC/1CszyYrW3BsLXsY5TMgTxtKfFA==
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/level/-/level-6.0.1.tgz#dc34c5edb81846a6de5079eac15706334b0d7cd6"
+  integrity sha512-psRSqJZCsC/irNhfHzrVZbmPYXDcEYhA5TVNwr+V92jF44rbf86hqGp8fiT702FyiArScYIlPSBTDUASCVNSpw==
   dependencies:
     level-js "^5.0.0"
     level-packager "^5.1.0"
     leveldown "^5.4.0"
-    opencollective-postinstall "^2.0.0"
 
 leveldown@^5.4.0:
   version "5.4.0"
@@ -5584,11 +5583,6 @@ onetime@^5.1.0:
   integrity sha512-5NcSkPHhwTVFIQN+TUqXoS5+dlElHXdpAWu9I0HP20YOtIi+aZ0Ct82jdlILDxjLEAWwvm+qj1m6aEtsDVmm6Q==
   dependencies:
     mimic-fn "^2.1.0"
-
-opencollective-postinstall@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.2.tgz#5657f1bede69b6e33a45939b061eb53d3c6c3a89"
-  integrity sha512-pVOEP16TrAO2/fjej1IdOyupJY8KDUM1CvsaScRbw6oddvpQoOfGk4ywha0HKKVAD6RkW4x6Q+tNBwhf3Bgpuw==
 
 opener@^1.5.1:
   version "1.5.1"
