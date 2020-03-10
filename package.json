@@ -11,21 +11,21 @@
     "test": "jest --coverage",
     "test:report": "codecov",
     "prepublishOnly": "tsc",
-    "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
+    "lint": "prettier --check \"./**/*.{ts,js,yml}\" --write",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
-    "hasha": "^5.0.0",
+    "hasha": "^5.2.0",
     "json-stable-stringify": "^1.0.1",
-    "remark": "^10.0.1",
-    "remark-autolink-headings": "^5.1.0",
+    "remark": "^11.0.2",
+    "remark-autolink-headings": "^5.2.2",
     "remark-gemoji-to-emoji": "^1.1.0",
-    "remark-highlight.js": "^5.1.0",
-    "remark-html": "^9.0.0",
+    "remark-highlight.js": "^5.2.0",
+    "remark-html": "^10.0.0",
     "remark-inline-links": "^3.1.2",
     "remark-slug": "^5.1.1",
-    "remark-toc": "^5.1.1"
+    "remark-toc": "^7.0.0"
   },
   "peerDependencies": {
     "level": "^6.0.0"
@@ -39,6 +39,7 @@
     "jest": "^25.1.0",
     "jest-junit": "^10.0.0",
     "level": "^6.0.0",
+    "prettier": "^1.19.1",
     "semantic-release": "^17.0.0",
     "ts-jest": "^25.0.0",
     "typescript": "^3.3.3333"

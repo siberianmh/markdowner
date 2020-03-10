@@ -15,7 +15,7 @@ const fixtures = {
   frontmatter: readFile('fixtures/frontmatter.md'),
   code: readFile('fixtures/code.md'),
   table: readFile('fixtures/table.md'),
-  toc: readFile('fixtures/toc.md')
+  toc: readFile('fixtures/toc.md'),
 }
 
 describe('markdowner', () => {
@@ -32,7 +32,7 @@ describe('markdowner', () => {
 
   it('turns headings into links', () => {
     expect($('h2#basic-fixture a[href="#basic-fixture"]').text()).toEqual(
-      'Basic Fixture'
+      'Basic Fixture',
     )
   })
 
@@ -53,7 +53,7 @@ describe('markdowner', () => {
 
   it('handles syntax highlight', async () => {
     const file = await markdowner(fixtures.code)
-    expect(file.content).toContain("<pre><code class=\"hljs language-js\">")
+    expect(file.content).toContain('<pre><code class="hljs language-js">')
   })
 
   it('table renders', async () => {
@@ -76,7 +76,7 @@ describe('markdowner', () => {
     it('handles full reference links', () => {
       expect(fixtures.footnotes).toContain('[full reference link][full]')
       expect(file.content).toContain(
-        '<a href="http://full.com">full reference link</a>'
+        '<a href="http://full.com">full reference link</a>',
       )
     })
   })
@@ -91,6 +91,18 @@ describe('markdowner', () => {
     it('to contain table', async () => {
       const file = await markdowner(fixtures.toc, { toc: true })
       expect(file.content).toContain('ul')
+    })
+  })
+
+  describe('runBefore', () => {
+    it('runs custom plugins', async () => {
+      let pluginDidRun = false
+      const plugin = () => (tree: any) => {
+        pluginDidRun = true
+        return tree
+      }
+      await markdowner(fixtures.basic, { runBefore: [plugin] })
+      expect(pluginDidRun).toEqual(true)
     })
   })
 
@@ -112,16 +124,16 @@ describe('markdowner', () => {
   })
 
   describe('caching', () => {
-    const db = level('./test/.cache', {valueEncoding: 'json'})
+    const db = level('./test/.cache', { valueEncoding: 'json' })
 
     it('accepts an optional leveldb instance as a cache', async () => {
       const hash = hasha(fixtures.basic)
-      await db.put(hash, {content: 'Hello from the caching world'})
+      await db.put(hash, { content: 'Hello from the caching world' })
 
       const uncached = await markdowner(fixtures.basic)
       expect(uncached.content).toContain('<h2')
 
-      const cached = await markdowner(fixtures.basic, {cache: db})
+      const cached = await markdowner(fixtures.basic, { cache: db })
       expect(cached.content).toEqual('Hello from the caching world')
     })
 
@@ -129,7 +141,7 @@ describe('markdowner', () => {
       const hash = hasha('This is cached?')
       await db.del(hash)
 
-      await markdowner('This is cached?', {cache: db})
+      await markdowner('This is cached?', { cache: db })
       const cached = await db.get(hash)
       expect(cached.content).toEqual('<p>This is cached?</p>\n')
     })

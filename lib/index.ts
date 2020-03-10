@@ -1,9 +1,9 @@
-import grayMatter from 'gray-matter'
+import * as grayMatter from 'gray-matter'
 import { promisify } from 'util'
 import hasha = require('hasha')
-import stableStringify from 'json-stable-stringify'
+import * as stableStringify from 'json-stable-stringify'
+import * as remark from 'remark'
 
-const remark = require('remark')
 const slug = require('remark-slug')
 const hljs = require('remark-highlight.js')
 const html = require('remark-html')
@@ -23,13 +23,15 @@ export interface IOptions {
    * the file.
    * @default false
    */
-  frontmatter?: boolean,
+  frontmatter?: boolean
 
   /**
    * An optional `level` instance in which to store
    * preprocessed content.
    */
   cache?: Map<string, boolean> | any
+
+  runBefore?: Array<any>
 
   /**
    * Whether or not to try generate Table of Contents
@@ -41,20 +43,14 @@ export interface IOptions {
 
 export async function markdowner(
   markdownString: string,
-  opts?: IOptions
+  opts?: IOptions,
 ): Promise<any> {
-  let renderer = remark()
-    .use(slug)
-    .use(autolinkHeadings, { behavior: 'wrap' })
-    .use(inlineLinks)
-    .use(emoji)
-    .use([hljs, html], { sanitize: false })
-
   const hash = makeHash(markdownString, opts)
 
   const defaults: IOptions = {
     frontmatter: false,
-    toc: false
+    runBefore: [],
+    toc: false,
   }
 
   opts = Object.assign(defaults, opts)
@@ -80,17 +76,20 @@ export async function markdowner(
   }
 
   if (opts.toc) {
-    renderer = remark()
-    .use(slug)
-    .use(autolinkHeadings, { behaviour: 'wrap' })
-    .use(inlineLinks)
-    .use(emoji)
-    .use([hljs, html], { sanitize: false })
-    .use(toc)
+    opts.runBefore = [toc]
   }
 
+  const renderer = remark()
+    .use(opts.runBefore ?? [])
+    .use(slug)
+    .use(autolinkHeadings, { behavior: 'wrap' })
+    .use(inlineLinks)
+    .use(emoji)
+    .use(hljs)
+    .use(html, { sanitize: false })
+
   const md = await promisify(renderer.process)(content)
-  Object.assign(data, {content: md.contents})
+  Object.assign(data, { content: md.contents })
 
   // Save processed markdown in cache
   if (opts.cache) await opts.cache.put(hash, data)
@@ -99,7 +98,7 @@ export async function markdowner(
 }
 
 // Create a unique hash from the given input (markdown + options object)
-function makeHash (markdownString: string, opts: IOptions | undefined): string {
+function makeHash(markdownString: string, opts: IOptions | undefined): string {
   // Copy existing opts object to avoid mutation
   const hashableOpts = Object.assign({}, opts)
 
@@ -109,7 +108,9 @@ function makeHash (markdownString: string, opts: IOptions | undefined): string {
   // Deterministic stringifier gets a consistent hash from stringified results
   // object keys are sorted to ensure {a:1, b:2} has the same hash as {b:2, a:1}
   // empty object should become an empty string, not {}
-  const optsString = Object.keys(hashableOpts).length ? stableStringify(hashableOpts) : ''
+  const optsString = Object.keys(hashableOpts).length
+    ? stableStringify(hashableOpts)
+    : ''
 
   return hasha(markdownString + optsString)
 }
