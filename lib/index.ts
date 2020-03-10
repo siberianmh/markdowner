@@ -45,7 +45,7 @@ export async function markdowner(
 ): Promise<any> {
   let renderer = remark()
     .use(slug)
-    .use(autolinkHeadings, { behaviour: 'wrap' })
+    .use(autolinkHeadings, { behavior: 'wrap' })
     .use(inlineLinks)
     .use(emoji)
     .use([hljs, html], { sanitize: false })

@@ -13,9 +13,9 @@ aliases:
     key: v2-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
 
 jobs:
-  test-node-8:
+  test-node-10:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10
     steps:
       - checkout
       - restore-cache: *restore-cache
@@ -32,9 +32,9 @@ jobs:
       - store_test_results:
           path: test-results
 
-  test-node-10:
+  test-node-12:
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:12
     steps:
       - checkout
       - restore-cache: *restore-cache
@@ -82,13 +82,13 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      - test-node-8
       - test-node-10
+      - test-node-12
       - test-node-latest
       - release:
           requires:
-            - test-node-8
             - test-node-10
+            - test-node-12
             - test-node-latest
           filters:
             branches:
