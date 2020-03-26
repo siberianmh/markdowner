@@ -6391,13 +6391,13 @@ remark-gemoji-to-emoji@^1.1.0:
     gemoji "^4.0.0"
     unist-util-visit "^1.0.0"
 
-remark-highlight.js@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/remark-highlight.js/-/remark-highlight.js-5.2.0.tgz#6d8d22085e0c76573744b7e3706fc232269f5b02"
-  integrity sha512-5tCr1CfdXDYzR8HCAnohlr1rK8DjUTFxEZdr+QEul5o13+EOEt5RrO8U6Znf8Faj5rVLcMJtxLPq6hHrZFo33A==
+remark-highlight.js@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/remark-highlight.js/-/remark-highlight.js-6.0.0.tgz#cb05387ddddeb078f0b61ce6299f6323f05098fc"
+  integrity sha512-eNHP/ezuDKoeh3KV+rWLeBVzU3SYVt0uu1tHdsCB6TUJYHwTNMJWZ5+nU+2fJHQXb+7PtpfGXVtFS9zk/W6qdw==
   dependencies:
     lowlight "^1.2.0"
-    unist-util-visit "^1.0.0"
+    unist-util-visit "^2.0.0"
 
 remark-html@^10.0.0:
   version "10.0.0"
