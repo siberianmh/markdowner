@@ -1,22 +1,47 @@
 # markdowner
 
+⚠ This module is deprecated in favor
+[`electron-markdown`](https://github.com/BinaryMuse/electron-markdown) and/or
+[`cmark-gfm`](https://github.com/BinaryMuse/node-cmark-gfm) ⚠
+
+### Migrating
+
+If you migrating from default setup of `markdowner` you just need to replace
+them by `electron-markdown`.
+
+```diff
+- const { markdowner } = require('smh-markdowner')
++ const markdown = require('electron-markdown')
+
+- const { content } = await markdowner('# Hello')
++ const content = await markdown('# Hello')
+```
+
+Please notice that the `electron-markdown` doesn't have `gray-matter` and any
+caching.
+
+---
+
 > Convert markdown to GitHub-style HTML using a common set of [remark] plugins
 
-[remark] is a performant markdown parser with a large plugin ecosystem.
-Unlike some other node markdown parsers that provide syntax highlighting
-capabilities, remark does not have any native C++ dependencies. This makes
-it easier to install and reduces the likelihood of system-dependent installation
-failures.
+[remark] is a performant markdown parser with a large plugin ecosystem. Unlike
+some other node markdown parsers that provide syntax highlighting capabilities,
+remark does not have any native C++ dependencies. This makes it easier to
+install and reduces the likelihood of system-dependent installation failures.
 
 ## Plugins
 
 The following [remark] plugins are used by markdowner:
 
 - [remark-slug](http://ghub.io/remark-slug) adds DOM ids to headings
-- [remark-autolink-headings](http://ghub.io/remark-autolink-headings) turns headings into links
-- [remark-inline-links](http://ghub.io/remark-inline-links) supports markdown reference links
-- [remark-highlight.js](http://ghub.io/remark-highlight.js) applies syntax highlighting to code blocks using highlight.js
-- [remark-html](http://ghub.io/remark-html) converts the parsed markdown tree to HTML
+- [remark-autolink-headings](http://ghub.io/remark-autolink-headings) turns
+  headings into links
+- [remark-inline-links](http://ghub.io/remark-inline-links) supports markdown
+  reference links`
+- [remark-highlight.js](http://ghub.io/remark-highlight.js) applies syntax
+  highlighting to code blocks using highlight.js
+- [remark-html](http://ghub.io/remark-html) converts the parsed markdown tree to
+  HTML
 
 ## Installation
 
@@ -33,13 +58,13 @@ markdowner exports a single function that returns a promise:
 ```ts
 import { markdowner } from 'smh-markdowner'
 
-markdowner('I am markdown').then(doc => {
+markdowner('I am markdown').then((doc) => {
   console.log(doc)
 })
 ```
 
-The resolved promise yields an object with a `content` property
-containing the parsed HTML:
+The resolved promise yields an object with a `content` property containing the
+parsed HTML:
 
 ```ts
 {
@@ -49,18 +74,18 @@ containing the parsed HTML:
 
 ## Using with Cache
 
-> NOTE: If you want uses cache module you need to install `level`
-> dependency manually, you can make by `npm install level`
+> NOTE: If you want uses cache module you need to install `level` dependency
+> manually, you can make by `npm install level`
 
-To use the cache, bring your own [level](https://github.com/Level/level) instance and
-supply it as an option to markdown. This helps keep markdowner lean on (native)
-dependencies for users who don't need the cache
+To use the cache, bring your own [level](https://github.com/Level/level)
+instance and supply it as an option to markdown. This helps keep markdowner lean
+on (native) dependencies for users who don't need the cache
 
 ```ts
 import { markdowner } from 'smh-markdowner'
 const cache = require('level')('./my-cache')
 
-markdowner('This is cached.', {cache}).then(doc => {
+markdowner('This is cached.', { cache }).then((doc) => {
   console.log(doc)
 })
 ```
@@ -75,8 +100,10 @@ Arguments:
 - `options` Object - (optional)
   - `frontmatter` Boolean - Whether or not to try to parse [YML frontmatter] in
     the file. Defaults to `false`.
-  - `cache` Map - An optional `level` instance in which to store preprocessed content.
-  - `toc` Boolean - Whether or not to try generate Table of Contents of markdown file.
+  - `cache` Map - An optional `level` instance in which to store preprocessed
+    content.
+  - `toc` Boolean - Whether or not to try generate Table of Contents of markdown
+    file.
 
 Returns a promise. The resolved object looks like this:
 
@@ -86,7 +113,8 @@ Returns a promise. The resolved object looks like this:
 }
 ```
 
-If [YML frontmatter] is parsed, those properties will be present on the object too:
+If [YML frontmatter] is parsed, those properties will be present on the object
+too:
 
 ```ts
 {
@@ -108,4 +136,4 @@ yarn test
 [MIT](LICENSE)
 
 [remark]: http://ghub.io/remark
-[YML frontmatter]: https://jekyllrb.com/docs/frontmatter
+[yml frontmatter]: https://jekyllrb.com/docs/frontmatter
